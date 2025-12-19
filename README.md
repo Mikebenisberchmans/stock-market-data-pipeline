@@ -8,30 +8,54 @@ The final output is a partitioned dataset, with one CSV file per stock symbol(ti
 
 ## 📂 Project Structure
 project_root/
+
 ├── README.md
+
 ├── requirements.txt
+
 ├── data
+
 │   ├── raw
+
 │   │   └── output_file.csv
-│   └── output
+
+│   └── output(result_files)
+
 │       ├── result_AAPL.csv
+
 │       ├── result_AMD.csv
+
 │       ├── result_AMZN.csv
+
 │       ├── result_AVGO.csv
+
 │       ├── result_CSCO.csv
+
 │       ├── result_MSFT.csv
+
 │       ├── result_NFLX.csv
+
 │       ├── result_PEP.csv
+
 │       ├── result_TMUS.csv
+
 │       └── result_TSLA.csv
+
 ├── notebooks
+
 │   ├── exploration.ipynb
+
 │   └── charts
+
 │       ├── html_files
+
 │       └── png_files
 ├── src
+
 │   ├── run_pipeline.py
+
 │   ├── transform.py
+
 │   └── writer.py
 └── venv
 
@@ -228,6 +252,89 @@ date,volume,open,high,low,close,adjclose,ticker
 From the project root directory, run:
 
 python src/run_pipeline.py
+## 🧪 Unit Testing (Pytest)
+
+This project uses pytest to validate the data transformation logic and ensure correctness of monthly aggregation and technical indicator calculations.
+
+## Why Pytest?
+
+Simple and readable test syntax
+
+Automatic test discovery
+
+Clear failure reports
+
+Widely adopted in Python data engineering projects
+
+## 📁 Test Structure
+tests/
+└── test_transformation.py
+
+
+The tests focus on:
+
+Monthly OHLC resampling logic
+
+Correct calculation of SMA (Simple Moving Average)
+
+Correct calculation of EMA (Exponential Moving Average) using SMA as the first EMA value
+
+Data shape and column validations
+
+## ▶️ How to Run Tests
+
+Make sure you are in the project root directory and your virtual environment is activated.
+
+pytest
+
+
+To run a specific test file:
+
+pytest tests/test_transformation.py
+
+🔍 What Is Being Tested?
+✔ Monthly Aggregation
+
+Open → first trading day of the month
+
+Close → last trading day of the month
+
+High → maximum price in the month
+
+Low → minimum price in the month
+
+✔ SMA Calculation
+
+Uses rolling mean over monthly closing prices
+
+Window sizes: 10 and 20
+
+✔ EMA Calculation (Custom Logic)
+
+EMA is calculated using the formula:
+
+EMA_t = (Price_t - Previous_EMA) * α + Previous_EMA
+
+
+The first EMA value is initialized using the SMA value at the same index
+
+This ensures mathematical correctness and avoids EMA values before SMA availability
+
+## 🧠 Assumptions
+
+EMA values are undefined before the corresponding SMA window
+
+Unit tests use small, deterministic datasets with known expected outputs
+
+Floating-point comparisons allow minimal tolerance using numpy.isclose
+
+## ✅ Benefits
+
+Ensures correctness of financial calculations
+
+Prevents regressions during refactoring
+
+Improves confidence in data quality before downstream consumption
 
 ## 🏁 Conclusion
 
