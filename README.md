@@ -7,58 +7,18 @@ The pipeline starts with exploratory analysis and visualization and progresses t
 The final output is a partitioned dataset, with one CSV file per stock symbol(ticker), ready for downstream analytics or reporting.
 
 ## 📂 Project Structure
-project_root/
-
-├── README.md
-
-├── requirements.txt
-
-├── data
-
-│    ├── raw
-
-│    │   └── output_file.csv
-
-│    └── output(result_files)
-
-│        ├── result_AAPL.csv
-
-│        ├── result_AMD.csv
-
-│        ├── result_AMZN.csv
-
-│        ├── result_AVGO.csv
-
-│        ├── result_CSCO.csv
-
-│        ├── result_MSFT.csv
-
-│        ├── result_NFLX.csv
-
-│        ├── result_PEP.csv
-
-│        ├── result_TMUS.csv
-
-│        └── result_TSLA.csv
-
-├── notebooks
-
-│    ├── exploration.ipynb
-
-│    └── charts
-
-│        ├── html_files
-
-│        └── png_files
-├── src
-
-│    ├── run_pipeline.py
-
-│    ├── transform.py
-
-│    └── writer.py
-└── venv
-
+- data/
+   - raw/      : Original input stock data
+   - output/   : Monthly aggregated results (one file per ticker)
+- src/
+   - transform.py : Data transformation logic
+   - writer.py    : Output writing utilities
+   - run_pipeline.py : Pipeline entry point
+- tests/
+   - test_transformation.py : Unit tests
+- notebooks/
+   - exploration.ipynb : Data profiling and visualization
+   
 ## 🧪 Data Exploration & Visualization
 
 Initial exploration and profiling were performed in:
