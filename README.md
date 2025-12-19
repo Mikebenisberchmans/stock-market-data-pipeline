@@ -15,48 +15,48 @@ project_root/
 
 ├── data
 
-│   ├── raw
+│    ├── raw
 
-│   │   └── output_file.csv
+│    │   └── output_file.csv
 
-│   └── output(result_files)
+│    └── output(result_files)
 
-│       ├── result_AAPL.csv
+│        ├── result_AAPL.csv
 
-│       ├── result_AMD.csv
+│        ├── result_AMD.csv
 
-│       ├── result_AMZN.csv
+│        ├── result_AMZN.csv
 
-│       ├── result_AVGO.csv
+│        ├── result_AVGO.csv
 
-│       ├── result_CSCO.csv
+│        ├── result_CSCO.csv
 
-│       ├── result_MSFT.csv
+│        ├── result_MSFT.csv
 
-│       ├── result_NFLX.csv
+│        ├── result_NFLX.csv
 
-│       ├── result_PEP.csv
+│        ├── result_PEP.csv
 
-│       ├── result_TMUS.csv
+│        ├── result_TMUS.csv
 
-│       └── result_TSLA.csv
+│        └── result_TSLA.csv
 
 ├── notebooks
 
-│   ├── exploration.ipynb
+│    ├── exploration.ipynb
 
-│   └── charts
+│    └── charts
 
-│       ├── html_files
+│        ├── html_files
 
-│       └── png_files
+│        └── png_files
 ├── src
 
-│   ├── run_pipeline.py
+│    ├── run_pipeline.py
 
-│   ├── transform.py
+│    ├── transform.py
 
-│   └── writer.py
+│    └── writer.py
 └── venv
 
 ## 🧪 Data Exploration & Visualization
